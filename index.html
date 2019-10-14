@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CDG Home</title>
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Staatliches&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+</head>
+<body onload="alert()">
+    <a href="https://countdowngen.online" class="clickable"><div class="footer">
+        <div class="small decorative">made with</div>
+        <div class="smallish decorative">countdowngen.online</div>
+    </div></a>
+    
+    <div class="main">
+        <div class="text small decorative">Days Until...</div>
+        <div class="text medium decorative" id="title">Christmas</div>
+        <br>
+        <div class="text medium flat">06:06:06:06</div>
+        <div class="text small flat">days hours minutes seconds</div>
+    </div>
+    <script>
+        function alert(){
+            var titleVar = getQueryVariable("t");
+            var monthVar = getQueryVariable("m");
+            var dayVar = getQueryVariable("d");
+            var yearVar = getQueryVariable("y");
+            console.log("title: " + titleVar + "date: " + monthVar + "/" + dayVar + "/" + yearVar);
+            document.getElementById("title").innerHTML = titleVar;
+        }
+    function getQueryVariable(variable)
+{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+}
+    </script>
+</body>
+</html>
