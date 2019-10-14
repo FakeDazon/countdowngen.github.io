@@ -8,27 +8,82 @@
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
-<body onload="alert()">
-    <a href="https://countdowngen.online" class="clickable"><div class="footer">
-        <div class="small decorative">made with</div>
-        <div class="smallish decorative">countdowngen.online</div>
+<body id="body" onchange="cntdngenerate()"onload="cntdngenerate()">
+    <a href="https://countdowngen.xyz" class="clickable" id="watermark"><div class="footer">
+        
+        <div class="smallish decorative">countdowngen.xyz</div>
     </div></a>
+    <div class="invis" id="alert">
+        
+            <div class="mini decorative alert">link copied!</div>
+    </div>
     
     <div class="main">
-        <div class="text small decorative">Days Until...</div>
-        <div class="text medium decorative" id="title">Christmas</div>
+        <div class="text smallish decorative" id="daysuntil">welcome to </div>
+        <div class="text medium decorative">countdowngen</div>
         <br>
-        <div class="text medium flat">06:06:06:06</div>
-        <div class="text small flat">days hours minutes seconds</div>
+        <div>
+            <div class="text smaller flat">day:</div>
+            <input id="day" class="flat mini" type="number" name="quantity" value="9" style="width: auto; height:3.5vh; padding:0px; background: #eeeeee; border:none; text-align:center;" min="1" max="31">
+            <div class="text smaller flat">month:</div>
+            <input id="month" class="flat mini" type="number" name="quantity" value="9" style="width: auto; height:3.5vh; padding:0px; background: #eeeeee; border:none; text-align:center;" min="1" max="12">
+            <div class="text smaller flat">year:</div>
+            <input id="year" class="flat mini" type="number" name="quantity" value="2020" style="width: auto; height:3.5vh; padding:0px; background: #eeeeee; border:none; text-align:center;" min="1" max="9999">
+        </div>
+<br>
+        <div>
+            <div class="text smaller flat">bg color:</div>
+            <input id="bgcol" type="color" name="body" style="width: 3vw; height:3.5vh; padding:0px; background: none; border:none" value="#fdf1db">
+            <div class="text smaller flat">text color:</div>
+            <input id="textcol" type="color" name="body" style="width: 3vw; height:3.5vh; padding:0px; background: none; border:none" value="#f9398b">
+        </div>
+        <br>
+        <div>
+                <div class="text smaller flat">title:</div>    
+                <input id="title" type="text" class="decorative mini" value="Title" name="body" style="text-align:center;width: 20vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none" placeholder="Your Countdown Will Be Here!">
+        </div>
+            <br>
+        <div>
+            <input id="cntdn" type="text" class="decorative mini" name="body" style=" font-size:1vw;text-align:center;width: 30vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none" placeholder="Your Countdown Will Be Here!">
+            <div class="text smaller flat btn " onclick="copy()">copy</div>
+        </div>
+        <br>
+        <a id="click" class="clickable" onclick="gotocd()"><div class="text smaller decorative">go to my countdown</div></a>
     </div>
     <script>
-        function alert(){
-            var titleVar = getQueryVariable("t");
-            var monthVar = getQueryVariable("m");
-            var dayVar = getQueryVariable("d");
-            var yearVar = getQueryVariable("y");
-            console.log("title: " + titleVar + "date: " + monthVar + "/" + dayVar + "/" + yearVar);
-            document.getElementById("title").innerHTML = titleVar;
+        function cntdngenerate(){
+            var day = document.getElementById('day');
+            var month = document.getElementById('month');
+            var year = document.getElementById('year');
+            var bgcol = document.getElementById('bgcol').value;
+            var textcol = document.getElementById('textcol').value;
+            var title = document.getElementById("title");
+            var cntdn = document.getElementById('cntdn');
+            var button = document.getElementById('click');
+
+            cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.replace("#", "") + "&b=" + bgcol.replace("#", "");
+            return(cntdn.value);
+        }
+        function gotocd(){
+            location.assign(cntdngenerate());
+        }
+        function copy() {
+            var alrt = document.getElementById("alert");
+        /* Get the text field */
+        var copyText = document.getElementById("cntdn");
+
+        /* Select the text field */
+        copyText.select();
+        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+        /* Copy the text inside the text field */
+        document.execCommand("copy");
+            alrt.classList.remove("invis");
+            alrt.classList.add("alertcont");
+            setTimeout(function() {
+                alrt.classList.add("invis");
+            alrt.classList.remove("alertcont");
+        }, 1900);
         }
     function getQueryVariable(variable)
 {
