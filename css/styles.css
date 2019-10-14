@@ -1,0 +1,64 @@
+.main{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.footer{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -115%);
+    
+    filter: opacity(20%);
+    
+    transition:0.4s;
+}
+.smallish{
+    font-size:3vw;
+}
+.clickable{
+    text-decoration: none;
+    color:black;
+}
+.footer:hover{
+    
+    filter: opacity(30%);
+}
+.small{
+    font-size:1vw;
+}
+.medium{
+    font-size:5vw;
+}
+.flat{
+    font-family: 'Staatliches', cursive;
+}
+.decorative{
+    font-family: 'Fredoka One', cursive;
+}
+body{
+    padding: 10px;
+  }
+  
+  input {
+    width: 500px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  p {
+    font-size: 18px;
+    line-height: 28px;
+    font-family: Georgia,serif;
+    color: #333;
+  }
+  
