@@ -28,7 +28,7 @@
             var dayVar = getQueryVariable("d");
             var yearVar = getQueryVariable("y");
             var now = new Date();
-            var eventDate = new Date(yearVar,monthVar,dayVar);
+            var eventDate = new Date(yearVar,monthVar - 1,dayVar);
 
             var currentTime = now.getTime();
             var eventTime = eventDate.getTime();
