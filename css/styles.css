@@ -18,6 +18,14 @@
     
     transition:0.4s;
 }
+.righter{
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(400%, -235%);
+}
 .alert{
     text-align: center;
     margin: 0;
