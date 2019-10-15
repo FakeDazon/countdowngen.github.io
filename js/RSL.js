@@ -30,6 +30,7 @@ function gotData(data) {
         if (code == codeToGet) {
             document.getElementById('code').textContent = code;
             document.getElementById('lUrl').textContent = longUrl;
+            document.location.href = longUrl;
             //console.log(gotCode);
         }
     }
