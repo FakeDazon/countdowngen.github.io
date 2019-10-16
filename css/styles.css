@@ -7,7 +7,16 @@
     transform: translate(-50%, -50%);
 }
 
-.maincont {}
+.maincont {
+    position: absolute;
+    width: auto;
+    margin: auto;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
 
 .footer {
     text-align: center;
@@ -20,6 +29,41 @@
     filter: opacity(20%);
 
     transition: 0.4s;
+}
+.dot1{
+    animation: dot1 infinite;
+    animation-duration: .5s;
+    animation-timing-function: linear;
+}
+@keyframes dot1{
+    0%{filter:opacity(0%);}
+    50%{filter: opacity(100%);}
+    100%{filter: opacity(0%);}
+}
+.dot2{
+    animation: dot2 infinite;
+    animation-duration: .5s;
+    animation-delay: 0.1s;
+    animation-timing-function: linear;
+}
+@keyframes dot2{
+    0%{filter:opacity(0%);}
+    50%{filter: opacity(100%);}
+    100%{filter: opacity(0%);}
+}
+.dot3{
+    animation: dot3 infinite;
+    animation-duration: .5s;
+    animation-delay: 0.2s;
+    animation-timing-function: linear;
+}
+@keyframes dot3{
+    0%{filter:opacity(0%);}
+    50%{filter: opacity(100%);}
+    100%{filter: opacity(0%);}
+}
+.red{
+    color:rgb(75, 70, 97);
 }
 
 .righter {
@@ -91,6 +135,13 @@
     display: inline-block;
     padding-right: 10px;
     padding-left: 10px;
+    color:rgb(52, 50, 59)
+}
+.textW {
+    display: inline-block;
+    padding-right: 10px;
+    padding-left: 10px;
+    color:rgb(255, 255, 255)
 }
 
 .color {
@@ -111,7 +162,7 @@
 
 .clickable {
     text-decoration: none;
-    color: black;
+    color: rgb(52, 50, 59)
 }
 
 .footer:hover {
