@@ -7,6 +7,14 @@
     <title>CDG Home</title>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+    <!--js for the countdown-->
+    <script type="text/javascript" src="js/CountDown.js"></script>
+    <!--creator of the short links-->
+    <script type="text/javascript" src="js/CSL.js"></script>
 </head>
 <body id="body" onchange="cntdngenerate()"onload="cntdngenerate()">
     <a href="https://countdowngen.xyz" class="clickable" id="watermark"><div class="footer">
@@ -16,6 +24,10 @@
     <div class="invis" id="alert">
         
             <div class="mini decorative alert">link copied!</div>
+    </div>
+    <div class="invis" id="sAlert">
+        
+            <div class="mini decorative alert">short link copied!</div>
     </div>
     
     <div class="main">
@@ -40,12 +52,16 @@
         <br>
         <div>
                 <div class="text smaller flat">title:</div>    
-                <input id="title" type="text" class="decorative mini" value="Title" name="body" style="text-align:center;width: 20vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none" placeholder="Your Countdown Will Be Here!">
+                <input id="title" type="text" class="decorative mini" value="Title" name="body" style="text-align:center;width: 20vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none;" placeholder="Your Title">
         </div>
             <br>
         <div>
-            <input id="cntdn" type="text" class="decorative mini" name="body" style=" font-size:1vw;text-align:center;width: 30vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none" placeholder="Your Countdown Will Be Here!">
-            <div class="text smaller flat btn " onclick="copy()">copy</div>
+            <input id="cntdn" type="text" class="decorative mini" name="body" style=" font-size:1vw;text-align:center;width: 30vw; height:3.5vh; padding:0px; background: #f5f5f5; border:none; width:50vw" placeholder="Your Countdown Will Be Here!">
+        </div>
+        <div>
+            <div class="textW smaller flat btn " onclick="copy()">copy</div>
+            <div class="textW smaller flat btn " onclick="createSLI()">copy short</div>
+            <div class="textW smaller flat btn " onclick="copy()">copy embeddable</div>
         </div>
         <br>
         <a id="click" class="clickable" onclick="gotocd()"><div class="text smaller decorative">go to my countdown</div></a>

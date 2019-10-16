@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>CDG Home</title>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Staatliches&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/styles.css" />
 </head>
@@ -12,6 +16,9 @@
     <a href="https://countdowngen.xyz" class="clickable" id="watermark"><div class="footer">
         <div class="small decorative">made with</div>
         <div class="smallish decorative">countdowngen.xyz</div>
+    </div></a>
+    <a class="clickable" id="watermark" onclick="createSL()"><div class="righter">
+            <div class="small decorative">copy shortened link</div>
     </div></a>
     
     <div class="main">
@@ -21,59 +28,10 @@
         <div class="medium flat" id="time"></div>
         <div class="small flat" id="bottom">days  : hours : minutes : seconds</div>
     </div>
-    <script>
-        function countdown(){
-            var titleVar = getQueryVariable("t");
-            var monthVar = getQueryVariable("m");
-            var dayVar = getQueryVariable("d");
-            var yearVar = getQueryVariable("y");
-            var now = new Date();
-            var eventDate = new Date(yearVar,monthVar - 1,dayVar);
-
-            var currentTime = now.getTime();
-            var eventTime = eventDate.getTime();
-
-            var remTime = eventTime-currentTime;
-
-            var s = Math.floor(remTime/1000);
-            var m = Math.floor(s/60);
-            var h = Math.floor(m/60);
-            var d = Math.floor(h/24);
-
-            h %= 24; m %= 60; s %= 60;
-            h = (h<10) ? "0" + h:h; m = (m<10) ? "0" + m:m; s = (s<10) ? "0" + s:s;
-
-            document.getElementById("time").textContent = d + ":" + h + ":" + m + ":" + s;
-            setTimeout(countdown,100);
-        }
-        countdown();
-        function onStart(){
-            var titleVar = getQueryVariable("t");
-            var monthVar = getQueryVariable("m");
-            var dayVar = getQueryVariable("d");
-            var yearVar = getQueryVariable("y");
-            var accentColor = getQueryVariable("c");
-            var bgColor = getQueryVariable("b");
-            console.log("title: " + titleVar + " date: " + monthVar + "/" + dayVar + "/" + yearVar);
-            document.getElementById("title").innerHTML = titleVar;
-            document.getElementById("daysuntil").style.color = "#" + accentColor;
-            document.getElementById("title").style.color = "#" + accentColor;
-            document.getElementById("time").style.color = "#" + accentColor;
-            document.getElementById("bottom").style.color = "#" + accentColor;
-            document.getElementById("watermark").style.color = "#" + accentColor;
-            document.body.style.backgroundColor = "#" + bgColor;
-        }
-        onStart();
-    function getQueryVariable(variable)
-{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-}
-    </script>
+    <!--js for the countdown-->
+    <script type="text/javascript" src="js/CountDown.js"></script>
+    <!--creator of the short links-->
+    <script type="text/javascript" src="js/CSL.js"></script>
+</body>
 </body>
 </html>
