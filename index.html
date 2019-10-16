@@ -16,7 +16,7 @@
     <!--creator of the short links-->
     <script type="text/javascript" src="js/CSL.js"></script>
 </head>
-<body id="body" onchange="cntdngenerate()"onload="cntdngenerate()">
+<body id="body" onchange="cntdngenerate()"onload="onLoadRand()">
     <a href="https://countdowngen.xyz" class="clickable" id="watermark"><div class="footer">
         
         <div class="smallish decorative">countdowngen.xyz</div>
@@ -79,6 +79,35 @@
 
             cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.replace("#", "") + "&b=" + bgcol.replace("#", "");
             return(cntdn.value);
+        }
+        function onLoadRand(){
+            var day = document.getElementById('day');
+            var month = document.getElementById('month');
+            var year = document.getElementById('year');
+            var bgcol = document.getElementById('bgcol');
+            var textcol = document.getElementById('textcol');
+            var title = document.getElementById("title");
+            var cntdn = document.getElementById('cntdn');
+            var button = document.getElementById('click');
+            day.value = getRandomInt(31) + 1;
+            month.value = getRandomInt(12) + 1;
+            year.value = getRandomInt(100) + 2001;
+            bgcol.value = "#" + randomStr(6, '0123456789ABCDEF');
+            textcol.value = "#" + randomStr(6, '0123456789ABCDEF');
+
+            cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.value.replace("#", "") + "&b=" + bgcol.value.replace("#", "");
+
+        }
+        function randomStr(len, arr) { 
+            var ans = ''; 
+            for (var i = len; i > 0; i--) { 
+                ans +=  
+                    arr[Math.floor(Math.random() * arr.length)]; 
+            } 
+            return ans; 
+        } 
+        function getRandomInt(max) {
+            return Math.floor(Math.random() * Math.floor(max));
         }
         function gotocd(){
             location.assign(cntdngenerate());

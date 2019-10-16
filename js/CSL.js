@@ -30,7 +30,8 @@ function createSL(){
     }
     console.log("successfuly created the shortened link:");
     console.log(info);
-    
+    var copyT = "https://countdowngen.xyz/s.html?l=" + sCode;
+    copyToClipboard(copyT);
 
 }
 function createSLI(){
