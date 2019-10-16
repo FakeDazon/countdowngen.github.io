@@ -74,6 +74,15 @@
     left: 50%;
     transform: translate(400%, -235%);
 }
+.lefter {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    filter: opacity(20%);
+
+    transition: 0.4s;
+}
+
 
 .alert {
     text-align: center;
@@ -166,6 +175,10 @@
 }
 
 .footer:hover {
+
+    filter: opacity(30%);
+}
+.lefter:hover {
 
     filter: opacity(30%);
 }
