@@ -22,14 +22,16 @@ function createSL(){
     
     firebase.database().ref("links/" + sCode).set({
         code: sCode,
-        lUrl: longUrl
+        lUrl: longUrl,
+        dateCreated: Date()
     });
     var info = {
         shortCode: sCode,
-        originalUrl: longUrl
+        originalUrl: longUrl,
+        dateC: Date()
     }
-    console.log("successfuly created the shortened link:");
-    console.log(info);
+    //console.log("successfuly created the shortened link:");
+    //console.log(info);
     var copyT = "https://countdowngen.xyz/s.html?l=" + sCode;
     copyToClipboard(copyT);
 
@@ -44,18 +46,21 @@ function createSLI(){
     
     firebase.database().ref("links/" + sCode).set({
         code: sCode,
-        lUrl: longUrl
+        lUrl: longUrl,
+        dateCreated: Date()
     });
     var info = {
         shortCode: sCode,
-        originalUrl: longUrl
+        originalUrl: longUrl,
+        dateC: Date()
     }
-    console.log("successfuly created the shortened link:");
-    console.log(info);
+    //console.log("successfuly created the shortened link:");
+    //console.log(info);
     var copyT = "https://countdowngen.xyz/s.html?l=" + sCode;
     copyToClipboard(copyT);
 
 }
+//console.log(Date());
 function copy() {
     var alrt = document.getElementById("alert");
 /* Get the text field */

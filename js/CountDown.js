@@ -30,7 +30,7 @@ function onStart(){
     var yearVar = getQueryVariable("y");
     var accentColor = getQueryVariable("c");
     var bgColor = getQueryVariable("b");
-    console.log("title: " + titleVar + " date: " + monthVar + "/" + dayVar + "/" + yearVar);
+    //console.log("title: " + titleVar + " date: " + monthVar + "/" + dayVar + "/" + yearVar);
     document.getElementById("title").innerHTML = titleVar.replace(/%20/g, " ");                          //Sets the color for all of the components
     document.getElementById("daysuntil").style.color = "#" + accentColor;
     document.getElementById("title").style.color = "#" + accentColor;
