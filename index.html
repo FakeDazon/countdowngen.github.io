@@ -80,7 +80,7 @@
             var button = document.getElementById('click');
             var bar = document.getElementById('bar');
             bar.style.background = "linear-gradient(to right, " + bgcol + " 0%, " + textcol + " 100%)";
-            cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.replace("#", "") + "&b=" + bgcol.replace("#", "");
+            cntdn.value = "https://countdowngen.xyz/cd?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.replace("#", "") + "&b=" + bgcol.replace("#", "");
             return(cntdn.value);
         }
         function onLoadRand(){
@@ -99,7 +99,7 @@
             bgcol.value = "#" + randomStr(6, '0123456789ABCDEF');
             textcol.value = "#" + randomStr(6, '0123456789ABCDEF');
             bar.style.background = "linear-gradient(to right, " + bgcol.value + " 0%, " + textcol.value + " 100%)";
-            cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.value.replace("#", "") + "&b=" + bgcol.value.replace("#", "");
+            cntdn.value = "https://countdowngen.xyz/cd?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.value.replace("#", "") + "&b=" + bgcol.value.replace("#", "");
 
         }
         function randomStr(len, arr) { 
