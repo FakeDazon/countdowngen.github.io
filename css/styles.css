@@ -74,6 +74,15 @@
     left: 50%;
     transform: translate(400%, -235%);
 }
+.bar{
+    width:40vw;
+    height:.5vh;
+    margin: auto;
+    border-radius: 100px;;
+}
+.gradient{
+    
+}
 .lefter {
     text-align: center;
     margin: 0;

@@ -10,7 +10,7 @@ var firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-console.log(firebase);
+//console.log(firebase);
 
 var database = firebase.database();
 var ref = database.ref("links");
@@ -19,7 +19,7 @@ ref.on("value", gotData, errData);
 function gotData(data) {
     var scores = data.val();
     var keys = Object.keys(scores);
-    console.log(scores.code);
+    //console.log(scores.code);
     for (let i = 0; i <= keys.length + 1; i++) {
         var k = keys[i];
         var longUrl = scores[k].lUrl;
@@ -35,8 +35,8 @@ function gotData(data) {
 }
 
 function errData(err) {
-    console.log(err);
-    console.log("Error!");
+    //console.log(err);
+    //console.log("Error!");
 }
 function getQueryVariable(variable) {
     var query = window.location.search.substring(1);

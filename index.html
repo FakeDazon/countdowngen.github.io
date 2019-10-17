@@ -31,8 +31,10 @@
     </div>
     
     <div class="main">
-        <div class="text smallish decorative" id="daysuntil">welcome to </div>
         <div class="text medium decorative">countdowngen</div>
+        <br>
+        <br>
+        <div id="bar" class="bar gradient"></div>
         <br>
         <div>
             <div class="text smaller flat">day:</div>
@@ -76,7 +78,8 @@
             var title = document.getElementById("title");
             var cntdn = document.getElementById('cntdn');
             var button = document.getElementById('click');
-
+            var bar = document.getElementById('bar');
+            bar.style.background = "linear-gradient(to right, " + bgcol + " 0%, " + textcol + " 100%)";
             cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.replace("#", "") + "&b=" + bgcol.replace("#", "");
             return(cntdn.value);
         }
@@ -89,12 +92,13 @@
             var title = document.getElementById("title");
             var cntdn = document.getElementById('cntdn');
             var button = document.getElementById('click');
+            var bar = document.getElementById('bar');
             day.value = getRandomInt(31) + 1;
             month.value = getRandomInt(12) + 1;
             year.value = getRandomInt(100) + 2001;
             bgcol.value = "#" + randomStr(6, '0123456789ABCDEF');
             textcol.value = "#" + randomStr(6, '0123456789ABCDEF');
-
+            bar.style.background = "linear-gradient(to right, " + bgcol.value + " 0%, " + textcol.value + " 100%)";
             cntdn.value = "https://countdowngen.xyz/cd.html?d=" + day.value + "&m=" + month.value +"&y=" + year.value + "&t=" + title.value + "&c=" + textcol.value.replace("#", "") + "&b=" + bgcol.value.replace("#", "");
 
         }
